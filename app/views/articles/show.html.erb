@@ -3,7 +3,9 @@
 <p> <%= @article.body %> </p>
 
 <ul>
-    <li>
-        <%= link_to "Editar Articulo", edit_article_path %>
-    </li>
+    <li> <%= link_to "Editar", edit_article_path %> </li>
+    <li> <%= link_to "Eliminar", article_path(@article), data: {
+        turbo_method: :delete,
+        turbo_confirm: "¿Seguro que quieres eliminar este articulo?"
+    } %> </li>
 </ul>
