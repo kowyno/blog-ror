@@ -9,3 +9,8 @@
         turbo_confirm: "¿Seguro que quieres eliminar este articulo?"
     } %> </li>
 </ul>
+
+<%= render @article.comments %>
+
+<h2>Agregar Comentario:</h2>
+<%= render "comments/form", article: @article %>
