@@ -35,3 +35,6 @@
 
 /mainkey
 /mainkey.pub
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
