@@ -1,9 +1,15 @@
-<p>
-    <strong>Commenter:</strong>
+<div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
+  <p class="text-sm text-gray-500 mb-1 flex items-center gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14c3.866 0 7 1.343 7 3v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-1c0-1.657 3.134-3 7-3z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11a4 4 0 100-8 4 4 0 000 8z" />
+    </svg>
+    <span class="font-semibold text-gray-700">Comentarista:</span>
     <%= comment.commenter %>
-</p>
-
-<p>
-    <strong>Comment:</strong>
+  </p>
+  <p class="text-gray-700 flex items-center gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4-4.03 7-9 7a9.77 9.77 0 01-4-.8l-4.28 1.07a1 1 0 01-1.21-1.21l1.07-4.28A7.72 7.72 0 013 12c0-5 4.03-9 9-9s9 4 9 9z" /></svg>
+    <span class="font-semibold text-gray-700">Comentario:</span>
     <%= comment.body %>
-</p>
+  </p>
+</div> 
