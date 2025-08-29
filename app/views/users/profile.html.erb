@@ -1,0 +1,38 @@
+<div class="max-w-4xl mx-auto">
+  <div class="bg-white shadow rounded-lg p-6">
+    <h1 class="text-2xl font-bold text-gray-900 mb-6">Mi Perfil</h1>
+    
+    <div class="space-y-4">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+          <%= icon_user_large %>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900"><%= user_display_name(@user) %></h2>
+          <p class="text-gray-600"><%= @user.email %></p>
+        </div>
+      </div>
+      
+      <div class="border-t pt-4">
+        <h3 class="text-lg font-medium text-gray-900 mb-3">Información de la cuenta</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Email</label>
+            <p class="mt-1 text-sm text-gray-900"><%= @user.email %></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Miembro desde</label>
+            <p class="mt-1 text-sm text-gray-900"><%= @user.created_at.strftime("%d/%m/%Y") %></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t pt-4">
+        <div class="flex gap-3">
+          <%= link_to "Editar perfil", edit_user_registration_path, class: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" %>
+          <%= link_to "Volver al inicio", root_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
 
   root "articles#index"
+
+  get "profile", to: "users#profile", as: :profile
 end
