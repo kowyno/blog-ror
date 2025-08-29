@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   root "articles#index"
 
   get "profile", to: "users#profile", as: :profile
+  get "test/send_test_email", to: "test_mailer#send_test_email", as: :send_test_email
 end

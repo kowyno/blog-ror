@@ -26,6 +26,23 @@
           </div>
         </div>
       </div>
+
+      <div class="border-t pt-4">
+        <div class="flex gap-3">
+          <%= link_to "Editar perfil", edit_user_registration_path, class: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" %>
+          <%= link_to "Volver al inicio", root_path, class: "px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition" %>
+        </div>
+        
+        <% if Rails.env.development? %>
+          <div class="border-t pt-4 mt-4">
+            <h3 class="text-lg font-medium text-gray-900 mb-3">Pruebas de Email (Solo Desarrollo)</h3>
+            <div class="flex gap-3">
+              <%= link_to "Enviar email de prueba", send_test_email_path, class: "px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" %>
+              <%= link_to "Abrir Mailcatcher", "http://localhost:1080", target: "_blank", class: "px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       
       <div class="border-t pt-4">
         <div class="flex gap-3">
