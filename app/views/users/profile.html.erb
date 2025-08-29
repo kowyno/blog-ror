@@ -43,6 +43,18 @@
           </div>
         <% end %>
       </div>
+
+      <div class="border-t pt-4 mt-4">
+        <h3 class="text-lg font-medium text-gray-900 mb-3">Pruebas de Notificaciones (Solo Desarrollo)</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <%= link_to "Todas las notificaciones", test_notifications_path, class: "px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-center" %>
+          <%= link_to "Éxito", test_single_notification_path("success"), class: "px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-center" %>
+          <%= link_to "Error", test_single_notification_path("error"), class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-center" %>
+          <%= link_to "Advertencia", test_single_notification_path("warning"), class: "px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition text-center" %>
+          <%= link_to "Info", test_single_notification_path("info"), class: "px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-center" %>
+          <%= link_to "Notice", test_single_notification_path("notice"), class: "px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition text-center" %>
+        </div>
+      </div>
       
       <div class="border-t pt-4">
         <div class="flex gap-3">

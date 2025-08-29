@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   get "profile", to: "users#profile", as: :profile
   get "test/send_test_email", to: "test_mailer#send_test_email", as: :send_test_email
+
+  get "test/notifications", to: "test_mailer#test_notifications", as: :test_notifications
+  get "test/notification/:type", to: "test_mailer#test_single_notification", as: :test_single_notification
 end
