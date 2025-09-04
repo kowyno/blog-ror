@@ -14,8 +14,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(parse_article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: "¡Artículo creado exitosamente!"
     else
+      flash.now[:error] = "Error al crear el artículo. Verifica los datos ingresados."
       render :new, status: :unprocessable_entity
     end
   end
