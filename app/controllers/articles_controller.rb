@@ -1,18 +1,20 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_article, only: [:show, :edit, :destroy, :update]
+
   def index
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end
 
   def create
-    @article = Article.new(parse_article_params)
+    @article = current_user.articles.build(parse_article_params)
     if @article.save
       redirect_to @article, notice: "¡Artículo creado exitosamente!"
     else
@@ -22,12 +24,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-
     if @article.update(parse_article_params) then
       redirect_to @article
     else
@@ -36,13 +35,15 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
 
     redirect_to articles_path, status: :see_other
   end
 
   private
+    def set_article
+      @article = Article.find(params[:id])
+    end
 
     def parse_article_params
       params.require(:article).permit(:title, :body)
