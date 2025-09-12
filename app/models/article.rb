@@ -1,11 +1,13 @@
 class Article < ApplicationRecord
   # Relaciones
   belongs_to :user
-  has_many :comments, dependent: :destroy # lo nuevo
+  has_many :comments, dependent: :destroy
   has_rich_text :body
 
   # Validaciones
   validates :title, presence: true
-  validates :body, presence: true, length: { minimum: 10 }
-  validates :user, presence: true # lo nuevo
+  validates :user, presence: true
+
+  # Estado
+  enum :publication_state, draft: 0, published: 1
 end
