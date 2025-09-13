@@ -51,23 +51,23 @@
             <h1> User does not own article </h1>
 
             <% if article.draft? %>
-              <div title="No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+              <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
                 <%= icon_plus %>
                 <span>Publicar</span>
               </div>
             <% elsif article.published? %>
-              <div title="No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+              <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
                 <%= icon_plus %>
                 <span>Despublicar</span>
               </div>
             <% end %>
 
-            <div title="No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+            <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
               <%= icon_edit %>
               <span>Editar</span>
             </div>
             
-            <div title="No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+            <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
               <%= icon_delete %>
               <span>Eliminar</span>
             </div>
