@@ -8,6 +8,12 @@
     <span class="text-gray-400">•</span>
     <%= icon_clock %>
     <span class="text-sm text-gray-500"><%= comment.created_at.strftime("%H:%M") %></span>
+
+    <% if policy(comment).destroy? %>
+      <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: "¿Seguro que quieres eliminar este comentario?" }, class: "flex flex-row items-center space-x-2 px-4 py-1 bg-red-100 hover:bg-red-200 text-red-700 rounded-full font-medium transition" do %>
+        <%= icon_delete %>
+      <% end %>
+    <% end %>
   </div>
   <p class="text-gray-700"><%= comment.body %></p>
 </div> 

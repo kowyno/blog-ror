@@ -64,7 +64,7 @@
   <div class="border-t pt-6">
     <h2 class="text-xl font-semibold mb-4 text-gray-800">Comentarios:</h2>
     <div class="space-y-4">
-      <%= render @article.comments %>
+      <%= render @article.comments, article: @article %>
     </div>
   </div>
   <div class="border-t pt-6 mt-8">

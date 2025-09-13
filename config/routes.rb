@@ -21,6 +21,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :comments do
+    member do
+    end
+
+    resources :articles
+  end
+
   root "articles#index"
 
   get "profile", to: "users#profile", as: :profile
