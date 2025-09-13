@@ -1,4 +1,6 @@
-<div class="max-w-6xl mx-auto mt-10 px-8">
+<%== pagy_nav_tailwind(@pagy) %>
+
+<div class="max-w-6xl mx-auto mt-10 px-8 mb-10">
   <div class="flex items-center justify-between mb-10">
     <h1 class="text-3xl font-bold text-gray-900">Artículos</h1>
     <% if policy(Article).new? %>
@@ -74,6 +76,10 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+      <% end %>
   </div>
+</div>
+
+<div class="my-15">
+  <%== pagy_nav_tailwind(@pagy) %>
 </div>

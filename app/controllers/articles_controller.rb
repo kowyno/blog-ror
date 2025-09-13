@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_article, only: [:show, :edit, :destroy, :update, :publish, :unpublish]
   before_action :authorize_article, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
 
   def index
-    @articles = policy_scope(Article)
+    @pagy, @articles = pagy(policy_scope(Article))
   end
 
   def show
