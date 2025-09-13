@@ -34,9 +34,31 @@
       <% end %>
       
       <%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: "¿Seguro que quieres eliminar este articulo?" }, class: "flex flex-row items-center space-x-2 px-4 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-full font-medium transition" do %>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        <%= icon_delete %>
         <span>Eliminar</span>
       <% end %>
+    <% else %>
+      <% if @article.draft? %>
+        <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+          <%= icon_plus %>
+          <span>Publicar</span>
+        </div>
+      <% elsif @article.published? %>
+        <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+          <%= icon_plus %>
+          <span>Despublicar</span>
+        </div>
+      <% end %>
+
+      <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+        <%= icon_edit %>
+        <span>Editar</span>
+      </div>
+      
+      <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
+        <%= icon_delete %>
+        <span>Eliminar</span>
+      </div>
     <% end %>
   </div>
   <div class="border-t pt-6">

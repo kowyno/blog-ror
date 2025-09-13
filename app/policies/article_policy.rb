@@ -32,6 +32,10 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def user_owns_article?
+    if user.nil?
+      return false
+    end
+
     record.user_id == user.id
   end
 
