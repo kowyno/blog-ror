@@ -3,6 +3,14 @@ class ArticlePolicy < ApplicationPolicy
     user.present?
   end
 
+  def publish?
+    user.present? && user_owns_article?
+  end
+
+  def unpublish?
+    user.present? && user_owns_article?
+  end
+
   def create?
     user.present?
   end

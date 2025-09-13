@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_article, only: [:show, :edit, :destroy, :update]
-  before_action :authorize_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :destroy, :update, :publish, :unpublish]
+  before_action :authorize_article, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
 
   def index
     @articles = policy_scope(Article)
@@ -44,6 +44,16 @@ class ArticlesController < ApplicationController
     else
       redirect_to articles_path, alert: "No se pudo eliminar el artículo.", status: :see_other
     end
+  end
+
+  def publish
+    @article.published!
+    redirect_to @article, notice: "¡Artículo publicado exitosamente!", status: :see_other
+  end
+
+  def unpublish
+    @article.draft!
+    redirect_to @article, notice: "¡Artículo despublicado exitosamente!", status: :see_other
   end
 
   private
