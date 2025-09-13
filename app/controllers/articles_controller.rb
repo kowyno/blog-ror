@@ -1,19 +1,22 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_article, only: [:show, :edit, :destroy, :update]
+  before_action :authorize_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = policy_scope(Article)
   end
 
   def show
   end
 
   def new
+    authorize Article
     @article = current_user.articles.build
   end
 
   def create
+    authorize Article
     @article = current_user.articles.build(parse_article_params)
     if @article.save
       redirect_to @article, notice: "¡Artículo creado exitosamente!"
@@ -28,16 +31,19 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(parse_article_params) then
-      redirect_to @article
+      redirect_to @article, notice: "¡Artículo actualizado exitosamente!"
     else
+      flash.now[:error] = "Error al actualizar el artículo. Verifica los datos ingresados."
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @article.destroy
-
-    redirect_to articles_path, status: :see_other
+    if @article.destroy
+      redirect_to articles_path, notice: "¡Artículo eliminado exitosamente!", status: :see_other
+    else
+      redirect_to articles_path, alert: "No se pudo eliminar el artículo.", status: :see_other
+    end
   end
 
   private
@@ -47,5 +53,9 @@ class ArticlesController < ApplicationController
 
     def parse_article_params
       params.require(:article).permit(:title, :body)
+    end
+
+    def authorize_article
+      authorize @article
     end
 end

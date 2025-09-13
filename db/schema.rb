@@ -55,7 +55,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_12_021638) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", default: 1, null: false
-    t.integer "publication_state"
+    t.integer "publication_state", default: 0, null: false
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
