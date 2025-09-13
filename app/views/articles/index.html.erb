@@ -22,8 +22,6 @@
         </div>
         <div class="flex gap-4 items-center">
           <% if policy(article).user_owns_article? %>
-            <h1> User owns article </h1>
-
             <% if article.draft? && policy(article).publish? %>
               <%= link_to publish_article_path(article), data: { turbo_method: :patch, turbo_confirm: "¿Seguro que quieres publicar este artículo?" }, class: "flex flex-row items-center space-x-2 px-4 py-2 bg-green-100 hover:bg-green-200 text-green-700 rounded-full font-medium transition" do %>
                 <%= icon_plus %>
@@ -50,8 +48,6 @@
               <% end %>
             <% end %>
           <% else %>
-            <h1> User does not own article </h1>
-
             <% if article.draft? %>
               <div title="¡No puedes realizar esta acción!" class="flex flex-row items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium transition">
                 <%= icon_plus %>
