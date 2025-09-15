@@ -4,11 +4,11 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def publish?
-    user.present? && user_owns_article?
+    user_owns_article?
   end
 
   def unpublish?
-    user.present? && user_owns_article?
+    user_owns_article?
   end
 
   def create?
@@ -20,23 +20,19 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def edit?
-    user.present? && user_owns_article?
+    user_owns_article?
   end
 
   def update?
-    user.present? && user_owns_article?
+    user_owns_article?
   end
 
   def destroy?
-    user.present? && user_owns_article?
+    user_owns_article?
   end
 
   def user_owns_article?
-    if user.nil?
-      return false
-    end
-
-    record.user_id == user.id
+    user.present? && record.user_id == user.id
   end
 
   class Scope < ApplicationPolicy::Scope
