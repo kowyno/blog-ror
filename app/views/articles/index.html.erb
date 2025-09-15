@@ -1,4 +1,6 @@
-<%== pagy_nav_tailwind(@pagy) %>
+<% if @articles.size > 4 %>
+  <%== pagy_nav_tailwind(@pagy) %>
+<% end %>
 
 <div class="max-w-6xl mx-auto mt-10 px-8 mb-10">
   <div class="flex items-center justify-between mb-10">
@@ -77,6 +79,9 @@
   </div>
 </div>
 
-<div class="my-15">
-  <%== pagy_nav_tailwind(@pagy) %>
-</div>
+<% if @articles.size > 1 %>
+  <div class="my-15">
+    <%== pagy_nav_tailwind(@pagy) %>
+  </div>
+<% end %>
+
